@@ -1,9 +1,12 @@
+using App.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Api.Data;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
+    public DbSet<Note> Notes => Set<Note>();
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
