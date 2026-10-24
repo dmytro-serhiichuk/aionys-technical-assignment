@@ -1,7 +1,9 @@
 using App.Api.Data;
 using App.Api.DTOs.Requests;
 using App.Api.DTOs.Responses;
+using App.Api.Exceptions;
 using App.Api.Models;
+using App.Api.Validation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -42,9 +44,8 @@ public class NotesController(AppDbContext db) : ControllerBase
                 CreatedAt = x.CreatedAt,
                 UpdatedAt = x.UpdatedAt
             })
-            .SingleOrDefaultAsync(x => x.Id == id);
-
-        if (note is null) return NotFound();
+            .SingleOrDefaultAsync(x => x.Id == id) 
+            ?? throw new AppException(404, ErrorCodes.NoteNotFound);
         return Ok(note);
     }
 
@@ -67,8 +68,8 @@ public class NotesController(AppDbContext db) : ControllerBase
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateNoteById(int id, [FromForm] CreateNoteRequest input)
     {
-        var note = await db.Notes.SingleOrDefaultAsync(x => x.Id == id);
-        if (note is null) return NotFound();
+        var note = await db.Notes.SingleOrDefaultAsync(x => x.Id == id) 
+            ?? throw new AppException(404, ErrorCodes.NoteNotFound);
 
         note.Title = input.Title;
         note.Content = input.Content;
@@ -82,8 +83,8 @@ public class NotesController(AppDbContext db) : ControllerBase
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteNoteById(int id)
     {
-        var note = await db.Notes.SingleOrDefaultAsync(x => x.Id == id);
-        if (note is null) return NotFound();
+        var note = await db.Notes.SingleOrDefaultAsync(x => x.Id == id)
+            ?? throw new AppException(404, ErrorCodes.NoteNotFound);
 
         db.Notes.Remove(note);
         await db.SaveChangesAsync();
