@@ -10,9 +10,11 @@ export default function HomePage() {
         <>
             <h1>{t("app.pageTitles.home")}</h1>
 
-            {notes.map(note => (
-                <NoteComponent key={note.id} note={note} />
-            ))}
+            <div className="note-list">
+                {notes.map(note => (
+                    <NoteComponent key={note.id} note={note} />
+                ))}
+            </div>
         </>
     );
 }

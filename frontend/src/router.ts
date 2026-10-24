@@ -14,32 +14,36 @@ const router = createBrowserRouter([
     {
         path: "/",
         Component: RootLayout,
-        ErrorBoundary: RootErrorBoundary,
         children: [
             {
-                index: true,
-                Component: HomePage,
-                loader: homeLoader,
-            },
-            {
-                path: ROUTES.SEARCH,
-                Component: SearchPage,
-                loader: searchLoader
-            },
-            {
-                path: ROUTES.NEW,
-                Component: CreateNotePage,
-                action: createNoteAction
-            },
-            {
-                path: ROUTES.EDIT,
-                Component: UpdateNotePage,
-                loader: updateNoteLoader,
-                action: updateNoteAction
-            },
-            {
-                path: "*",
-                Component: NotFound
+                ErrorBoundary: RootErrorBoundary,
+                children: [
+                    {
+                        index: true,
+                        Component: HomePage,
+                        loader: homeLoader,
+                    },
+                    {
+                        path: ROUTES.SEARCH,
+                        Component: SearchPage,
+                        loader: searchLoader
+                    },
+                    {
+                        path: ROUTES.NEW,
+                        Component: CreateNotePage,
+                        action: createNoteAction
+                    },
+                    {
+                        path: ROUTES.EDIT,
+                        Component: UpdateNotePage,
+                        loader: updateNoteLoader,
+                        action: updateNoteAction
+                    },
+                    {
+                        path: "*",
+                        Component: NotFound
+                    }
+                ]
             }
         ]
     }

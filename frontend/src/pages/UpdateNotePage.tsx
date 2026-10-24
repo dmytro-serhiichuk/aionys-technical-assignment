@@ -11,7 +11,9 @@ export default function UpdateNotePage() {
         <>
             <h1>{t("app.pageTitles.updateNote")}</h1>
 
-            <NoteEditor title={note.title} content={note.content} />
+            <div className="container">
+                <NoteEditor title={note.title} content={note.content} />
+            </div>
         </>
     )
 }

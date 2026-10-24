@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import apiClient, { ApiError } from "../api/apiClient";
 import type { NoteResponse } from "../api/types";
 import { useNoteStore } from "../stores/noteStore";
@@ -9,6 +9,7 @@ export default function NoteComponent({note}: {note: NoteResponse}) {
     const { t } = useTranslation();
     const formatDate = useFormatDate();
     const removeNote = useNoteStore(state => state.removeNote);
+    const navigate = useNavigate();
 
     const handleRemove = async () => {
         try {
@@ -26,23 +27,27 @@ export default function NoteComponent({note}: {note: NoteResponse}) {
     }
     
     return (
-        <div>
-            <button onClick={handleRemove}>
-                {t("actions.remove")}
-            </button>
-
-            <Link to={`/notes/${note.id}/edit`}>{t("actions.edit")}</Link>
-
-            <p>{t("entities.note.id", { id: note.id })}</p>
-            <p>{t("entities.note.createdAt", { date: formatDate(note.createdAt) })}</p>
-            {note.updatedAt && (
-                <p>{t("entities.note.updatedAt", { date: formatDate(note.updatedAt) })}</p>
-            )}
-            <hr />
-            <p><strong>{note.title}</strong></p>
+        <div className="note">
+            <div className="note-top-container">
+                <div className="note-info-container">
+                    <h2>{note.title}</h2>
+                    <p>{t("entities.note.id")}: {note.id}</p>
+                    <p>{t("entities.note.createdAt", { date: formatDate(note.createdAt) })}</p>
+                    {note.updatedAt && (
+                        <p>{t("entities.note.updatedAt", { date: formatDate(note.updatedAt) })}</p>
+                    )}
+                </div>
+                <div className="note-buttons-container">
+                    <button onClick={handleRemove}>
+                        {t("actions.remove")}
+                    </button>
+                    <button onClick={() => navigate(`/notes/${note.id}/edit`)}>
+                        {t("actions.edit")}
+                    </button>
+                </div>
+            </div>
             <hr />
             <p>{note.content}</p>
-            <hr />
         </div>
     );
 }

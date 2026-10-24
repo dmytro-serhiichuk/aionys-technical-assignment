@@ -17,7 +17,7 @@
     },
     "entities": {
         "note": {
-            "id": "Id: {{id}}",
+            "id": "Id",
             "title": "Title",
             "content": "Content",
             "createdAt": "Created At: {{date}}",

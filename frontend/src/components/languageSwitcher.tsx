@@ -6,6 +6,7 @@ export default function LanguageSwitcher() {
     
     return (
         <select
+            id="language-switcher"
             value={i18n.resolvedLanguage}
             onChange={e => i18n.changeLanguage(e.target.value)}
         >

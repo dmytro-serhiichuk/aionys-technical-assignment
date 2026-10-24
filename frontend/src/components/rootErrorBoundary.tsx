@@ -14,13 +14,16 @@ export default function RootErrorBoundary() {
     }
 
     return (
-        <div>
+        <>
             <h1>{t("app.pageTitles.rootErrorBoundary")}</h1>
-            <p>
-                {error instanceof ApiError 
-                    ? translateError(error.code) 
-                    : translateError("UNKNOWN_ERROR")}
-            </p>
-        </div>
+
+            <div className="container">
+                <p>
+                    {error instanceof ApiError 
+                        ? translateError(error.code) 
+                        : translateError("UNKNOWN_ERROR")}
+                </p>
+            </div>
+        </>
     )
 }

@@ -19,17 +19,19 @@ export default function NoteEditor({title = "", content = ""}: NoteEditorProps) 
             {actionData?.errors?.title && (
                 <ValidationErrorsList errors={actionData.errors.title} />
             )}
-            <label>
-                {t("entities.note.title")}
-                <input type="text" name="title" defaultValue={title} />
-            </label>
+            <input 
+                type="text" 
+                name="title" 
+                defaultValue={title}
+                placeholder={t("entities.note.title")} />
+
             {actionData?.errors?.content && (
                 <ValidationErrorsList errors={actionData.errors.content} />
             )}
-            <label>
-                {t("entities.note.content")}
-                <textarea name="content" defaultValue={content}/>
-            </label>
+            <textarea 
+                name="content" 
+                defaultValue={content}
+                placeholder={t("entities.note.content")}/>
 
             <button>
                 {isUpdating ? t("actions.update") : t("actions.create")}

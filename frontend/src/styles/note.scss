@@ -1,0 +1,39 @@
+@use "./vars.scss";
+@use "./colors.scss";
+@use "./text.scss";
+
+.note-list {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$gap-regular;
+}
+
+.note {
+    background-color: colors.$white;
+    border-radius: vars.$radius-regular;
+    padding: vars.$container-padding-regular;
+
+    & .note-top-container {
+        display: flex;
+        width: 100%;
+
+        & .note-info-container {
+            flex: 1;
+
+            & h2 {
+                margin-top: 0;
+            }
+
+            & p {
+                margin: 0;
+                font-size: text.$font-size-small;
+            }
+        }
+
+        & .note-buttons-container {
+            display: flex;
+            align-items: flex-start;
+            gap: vars.$gap-small;
+        }
+    }
+}

@@ -8,7 +8,9 @@ export default function CreateNotePage() {
         <>
             <h1>{t("app.pageTitles.createNote")}</h1>
 
-            <NoteEditor />
+            <div className="container">
+                <NoteEditor />
+            </div>
         </>
     );
 }

@@ -9,23 +9,24 @@ export default function Header() {
     return (
         <header>
             <h1>
-                <Link to={ROUTES.HOME}>{t("app.title")}
-                </Link>
+                <Link to={ROUTES.HOME}>{t("app.title")}</Link>
             </h1>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to={ROUTES.HOME}>{t("app.nav.home")}</Link>
-                    </li>
-                    <li>
-                        <Link to={ROUTES.SEARCH}>{t("app.nav.search")}</Link>
-                    </li>
-                    <li>
-                        <Link to={ROUTES.NEW}>{t("app.nav.create")}</Link>
-                    </li>
-                </ul>
-            </nav>
-            <LanguageSwitcher />
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to={ROUTES.HOME}>{t("app.nav.home")}</Link>
+                        </li>
+                        <li>
+                            <Link to={ROUTES.SEARCH}>{t("app.nav.search")}</Link>
+                        </li>
+                        <li>
+                            <Link to={ROUTES.NEW}>{t("app.nav.create")}</Link>
+                        </li>
+                    </ul>
+                </nav>
+                <LanguageSwitcher />
+            </div>
         </header>
     );
 }

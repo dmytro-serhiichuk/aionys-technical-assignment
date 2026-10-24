@@ -12,26 +12,33 @@ export default function SearchPage() {
         <>
             <h1>{t("app.pageTitles.searchNote")}</h1>
 
-            <Form method="get">
-                {data?.error && (
-                    <p>{translateError(data.error.code)}</p>
+            <div className="container-wrapper">
+                <div className="container">
+                    <Form method="get">
+                        {data?.error && data.error.code !== "NOTE_NOT_FOUND" && (
+                            <p className="form-error-message">{translateError(data.error.code)}</p>
+                        )}
+                        <input name="id" type="number" placeholder={t("entities.note.id")} />
+
+                        <button type="submit">
+                            {t("actions.search")}
+                        </button>
+                    </Form>
+                </div>
+
+                {data?.error && data.error.code === "NOTE_NOT_FOUND" && (
+                    <div className="container">
+                        <h3 className="note-not-found-message">
+                            {translateError(data.error.code)}
+                        </h3>
+                    </div>
                 )}
-                <label>
-                    {t("entities.note.id")}
-                    <input name="id" type="number" />
-                </label>
 
-                <button type="submit">
-                    {t("actions.search")}
-                </button>
-            </Form>
-
-            {data?.note && (
-                <>
-                    <hr />
+                {data?.note && (
                     <NoteComponent note={data.note} />
-                </>
-            )}
+                )}
+            </div>
+            
         </>
     );
 }

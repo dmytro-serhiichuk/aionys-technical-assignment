@@ -21,7 +21,7 @@ export async function searchLoader({request}: LoaderFunctionArgs) {
 
     if (!Number.isInteger(id) || id <= 0) {
         return {
-            error: { code: "INVALID_NOTE_ID" },
+            error: { code: "NOTE_INVALID_ID" },
         };
     }
 
