@@ -5,6 +5,9 @@ const apiURL = process.env.E2E_API_URL ?? "http://localhost:5000";
 
 export default defineConfig({
   testDir: './tests',
+  reporter: process.env.CI
+    ? [['github'], ['html', { open: 'never' }]]
+    : 'html',
   use: {
     baseURL,
     locale: "en",
@@ -12,7 +15,7 @@ export default defineConfig({
   webServer: {
     command: "docker compose -f ../compose.yml up --build",
     url: `${apiURL}/notes`,
-    reuseExistingServer: true,
-    timeout: 180_000
+    reuseExistingServer: !process.env.CI,
+    timeout: 300_000
   },
 });
