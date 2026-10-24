@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import apiClient, { ApiError } from "../api/apiClient";
 import type { NoteResponse } from "../api/types";
 import { useNoteStore } from "../stores/noteStore";

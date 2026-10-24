@@ -7,9 +7,5 @@ export default defineConfig({
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] })
-  ],
-  server: {
-    port: Number(process.env.VITE_PORT) || 5173,
-    host: process.env.VITE_HOST || "localhost"
-  }
+  ]
 })
