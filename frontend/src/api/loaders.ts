@@ -1,9 +1,14 @@
-import { data, type LoaderFunctionArgs } from "react-router";
+import type { LoaderFunctionArgs } from "react-router";
 import apiClient, { ApiError } from "./apiClient";
 import type { NoteResponse } from "./types";
+import { useNoteStore } from "../stores/noteStore";
 
 export async function homeLoader() {
-    return await apiClient<NoteResponse[]>("notes");
+    const receivedNotes = await apiClient<NoteResponse[]>("notes");
+    
+    const setNotes = useNoteStore.getState().setNotes;
+
+    setNotes(receivedNotes);
 }
 
 export async function searchLoader({request}: LoaderFunctionArgs) {

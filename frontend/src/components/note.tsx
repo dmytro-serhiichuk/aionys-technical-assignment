@@ -1,16 +1,20 @@
 import { Link } from "react-router";
 import apiClient, { ApiError } from "../api/apiClient";
 import type { NoteResponse } from "../api/types";
+import { useNoteStore } from "../stores/noteStore";
 
 export default function NoteComponent({note}: {note: NoteResponse}) {
+    const removeNote = useNoteStore(state => state.removeNote);
+
     const handleRemove = async () => {
         try {
             await apiClient(`notes/${note.id}`, {
                 method: "DELETE"
             });
+            removeNote(note.id);
         } catch (e) {
             if (e instanceof ApiError && e.status === 404) {
-                // TODO: remove from storage
+                removeNote(note.id);
                 return;
             }
             throw e;

@@ -1,9 +1,8 @@
-import { useLoaderData } from "react-router";
-import { homeLoader } from "../api/loaders";
 import NoteComponent from "../components/note";
+import { useNoteStore } from "../stores/noteStore";
 
 export default function HomePage() {
-    const notes = useLoaderData<typeof homeLoader>();
+    const notes = useNoteStore(state => state.notes);
 
     return (
         <>
