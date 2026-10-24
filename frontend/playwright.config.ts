@@ -10,7 +10,7 @@ export default defineConfig({
     locale: "en",
   },
   webServer: {
-    command: "docker compose -f ../compose.dev.yml -f ../compose.yml up --build",
+    command: "docker compose -f ../compose.yml up --build",
     url: `${apiURL}/notes`,
     reuseExistingServer: true,
     timeout: 180_000
