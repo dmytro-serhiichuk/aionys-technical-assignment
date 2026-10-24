@@ -1,0 +1,34 @@
+{
+    "app": {
+        "title": "Aionys Technical Assignment",
+        "pageTitles": {
+            "home": "Home Page",
+            "searchNote": "Search Page",
+            "createNote": "Create Note",
+            "updateNote": "Update Note",
+            "notFound": "Page not found 404",
+            "rootErrorBoundary": "Something went wrong..."
+        },
+        "nav": {
+            "home": "Home",
+            "create": "Create",
+            "search": "Search"
+        }
+    },
+    "entities": {
+        "note": {
+            "id": "Id",
+            "title": "Title",
+            "content": "Content",
+            "createdAt": "Created At",
+            "updatedAt": "Updated At"
+        }
+    },
+    "actions": {
+        "search": "Search",
+        "remove": "Remove",
+        "edit": "Edit",
+        "create": "Create",
+        "update": "Update"
+    }
+}

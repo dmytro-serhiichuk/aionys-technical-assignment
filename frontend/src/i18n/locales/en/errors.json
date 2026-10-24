@@ -1,0 +1,26 @@
+{
+    "INVALID_REQUEST": "Invalid request.",
+    "UNAUTHORIZED": "You must sign in.",
+    "FORBIDDEN": "You do not have permission to perform this action.",
+    "RESOURCE_NOT_FOUND": "The requested resource was not found.",
+    "METHOD_NOT_ALLOWED": "This request method is not supported.",
+    "RESOURCE_CONFLICT": "The action could not be completed due to a conflict with the current resource state.",
+    "RATE_LIMIT_EXCEEDED": "Too many requests. Please try again later.",
+    "UNKNOWN_ERROR": "An unexpected error occurred. Please try again.",
+    "INTERNAL_SERVER_ERROR": "An internal server error occurred. Please try again later.",
+
+    "SERVER_TIMEOUT": "Server takes too long to respond",
+    "SERVER_NOT_RESPONDING": "Server is not responding",
+
+    "INVALID_VALIDATION": "Please check the information you entered.",
+    "INVALID_VALIDATION_MESSAGE_NOT_DEFINED": "The provided data did not pass validation.",
+
+    "NOTE_INVALID_ID": "Id must be a positive integer.",
+    "NOTE_TITLE_REQUIRED": "Please enter a note title.",
+    "NOTE_CONTENT_REQUIRED": "Please enter the note content.",
+
+    "NOTE_TITLE_INVALID_MAX_LENGTH": "The note title exceeds the maximum allowed length.",
+    "NOTE_CONTENT_INVALID_MAX_LENGTH": "The note content exceeds the maximum allowed length.",
+
+    "NOTE_NOT_FOUND": "Note not found."
+}

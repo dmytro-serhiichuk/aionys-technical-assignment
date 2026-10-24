@@ -1,0 +1,34 @@
+{
+    "app": {
+        "title": "Aionys Технічне Завдання",
+        "pageTitles": {
+            "home": "Головна Сторінка",
+            "searchNote": "Пошук нотатків",
+            "createNote": "Створити нотатку",
+            "updateNote": "Редагувати нотатку",
+            "notFound": "Сторінку не знайдено 404",
+            "rootErrorBoundary": "Щось пішло не так..."
+        },
+        "nav": {
+            "home": "Головна",
+            "create": "Створити",
+            "search": "Знайти"
+        }
+    },
+    "entities": {
+        "note": {
+            "id": "Ідентифікатор",
+            "title": "Заголовок",
+            "content": "Текст",
+            "createdAt": "Створено",
+            "updatedAt": "Змінено"
+        }
+    },
+    "actions": {
+        "search": "Знайти",
+        "remove": "Видалити",
+        "edit": "Редагуваи",
+        "create": "Створити",
+        "update": "Внести зміни"
+    }
+}
