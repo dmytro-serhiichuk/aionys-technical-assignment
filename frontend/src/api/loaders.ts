@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from "react-router";
+import { data, type LoaderFunctionArgs } from "react-router";
 import apiClient, { ApiError } from "./apiClient";
 import type { NoteResponse } from "./types";
 
@@ -34,4 +34,8 @@ export async function searchLoader({request}: LoaderFunctionArgs) {
         }
         throw e;
     }
+}
+
+export async function updateNoteLoader({ params }: LoaderFunctionArgs) {
+    return await apiClient<NoteResponse>(`notes/${params.id}`, { method: "GET" });
 }

@@ -1,5 +1,5 @@
 import { Form, useActionData } from "react-router";
-import type { CreateNoteActionData } from "../api/actions";
+import type { NoteEditorActionData } from "../api/actions";
 import ValidationErrorsList from "./validationErrorsList";
 
 type NoteEditorProps = {
@@ -8,7 +8,7 @@ type NoteEditorProps = {
 }
 
 export default function NoteEditor({title = "", content = ""}: NoteEditorProps) {
-    const actionData = useActionData<CreateNoteActionData>();
+    const actionData = useActionData<NoteEditorActionData>();
 
     return (
         <Form method="post">

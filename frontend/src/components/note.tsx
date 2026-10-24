@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import apiClient, { ApiError } from "../api/apiClient";
 import type { NoteResponse } from "../api/types";
 
@@ -21,6 +22,8 @@ export default function NoteComponent({note}: {note: NoteResponse}) {
             <button onClick={handleRemove}>
                 Remove
             </button>
+
+            <Link to={`/notes/${note.id}/edit`}>Edit</Link>
 
             <p>Id: {note.id}</p>
             <p>Created at: {note.createdAt}</p>

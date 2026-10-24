@@ -3,11 +3,12 @@ import RootLayout from "./layouts/RootLayout";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import RootErrorBoundary from "./components/rootErrorBoundary";
-import { homeLoader, searchLoader } from "./api/loaders";
+import { homeLoader, searchLoader, updateNoteLoader } from "./api/loaders";
 import { ROUTES } from "./const/routes";
 import SearchPage from "./pages/SearchPage";
 import CreateNotePage from "./pages/CreateNotePage";
-import { createNoteAction } from "./api/actions";
+import { createNoteAction, updateNoteAction } from "./api/actions";
+import UpdateNotePage from "./pages/UpdateNotePage";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
                 path: ROUTES.NEW,
                 Component: CreateNotePage,
                 action: createNoteAction
+            },
+            {
+                path: ROUTES.EDIT,
+                Component: UpdateNotePage,
+                loader: updateNoteLoader,
+                action: updateNoteAction
             },
             {
                 path: "*",
