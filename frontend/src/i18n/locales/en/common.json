@@ -30,5 +30,9 @@
         "edit": "Edit",
         "create": "Create",
         "update": "Update"
+    },
+    "languages": {
+        "uk": "Ukrainian",
+        "en": "English"
     }
 }

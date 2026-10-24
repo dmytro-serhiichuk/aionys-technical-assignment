@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { ROUTES } from "../const/routes";
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./languageSwitcher";
 
 export default function Header() {
     const { t } = useTranslation();
@@ -24,6 +25,7 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
+            <LanguageSwitcher />
         </header>
     );
 }
