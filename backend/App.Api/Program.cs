@@ -1,3 +1,4 @@
+using System.Text.Json;
 using App.Api.Data;
 using App.Api.Services;
 using App.Api.Validation;
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddControllers()
+    .AddJsonOptions(o => o.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase)
     .ConfigureApiBehaviorOptions(options =>
     {
         options.InvalidModelStateResponseFactory = context =>

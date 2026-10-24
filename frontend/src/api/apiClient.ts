@@ -32,10 +32,6 @@ export default async function apiClient<T>(endpoint: string, options?: RequestIn
         const response = await fetch(url, {
             ...options,
             credentials: "include",
-            headers: {
-                "Content-Type": "application/json",
-                ...options?.headers
-            },
             signal: AbortSignal.timeout(5000)
         });
 

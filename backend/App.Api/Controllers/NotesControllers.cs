@@ -50,7 +50,7 @@ public class NotesController(AppDbContext db) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateNote([FromBody] CreateNoteRequest createRequest)
+    public async Task<IActionResult> CreateNote([FromForm] CreateNoteRequest createRequest)
     {
         var note = new Note
         {
@@ -66,7 +66,7 @@ public class NotesController(AppDbContext db) : ControllerBase
     }
 
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> UpdateNoteById(int id, [FromBody] CreateNoteRequest input)
+    public async Task<IActionResult> UpdateNoteById(int id, [FromForm] CreateNoteRequest input)
     {
         var note = await db.Notes.SingleOrDefaultAsync(x => x.Id == id) 
             ?? throw new AppException(404, ErrorCodes.NoteNotFound);

@@ -16,6 +16,9 @@ export default function Header() {
                     <li>
                         <Link to={ROUTES.SEARCH}>Search</Link>
                     </li>
+                    <li>
+                        <Link to={ROUTES.NEW}>Create</Link>
+                    </li>
                 </ul>
             </nav>
         </header>
