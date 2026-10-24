@@ -27,7 +27,7 @@ export default function NoteComponent({note}: {note: NoteResponse}) {
     }
     
     return (
-        <div className="note">
+        <div className="note" data-testid="note">
             <div className="note-top-container">
                 <div className="note-info-container">
                     <h2>{note.title}</h2>
