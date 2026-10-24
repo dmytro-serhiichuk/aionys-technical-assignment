@@ -17,11 +17,11 @@
     },
     "entities": {
         "note": {
-            "id": "Id",
+            "id": "Id: {{id}}",
             "title": "Title",
             "content": "Content",
-            "createdAt": "Created At",
-            "updatedAt": "Updated At"
+            "createdAt": "Created At: {{date}}",
+            "updatedAt": "Updated At: {{date}}"
         }
     },
     "actions": {

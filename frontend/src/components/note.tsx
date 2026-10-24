@@ -3,9 +3,11 @@ import apiClient, { ApiError } from "../api/apiClient";
 import type { NoteResponse } from "../api/types";
 import { useNoteStore } from "../stores/noteStore";
 import { useTranslation } from "react-i18next";
+import { useFormatDate } from "../i18n/date";
 
 export default function NoteComponent({note}: {note: NoteResponse}) {
     const { t } = useTranslation();
+    const formatDate = useFormatDate();
     const removeNote = useNoteStore(state => state.removeNote);
 
     const handleRemove = async () => {
@@ -31,9 +33,11 @@ export default function NoteComponent({note}: {note: NoteResponse}) {
 
             <Link to={`/notes/${note.id}/edit`}>{t("actions.edit")}</Link>
 
-            <p>{t("entities.note.id")}: {note.id}</p>
-            <p>{t("entities.note.createdAt")}: {note.createdAt}</p>
-            {note.updatedAt && (<p>{t("entities.note.updatedAt")}: {note.updatedAt}</p>)}
+            <p>{t("entities.note.id", { id: note.id })}</p>
+            <p>{t("entities.note.createdAt", { date: formatDate(note.createdAt) })}</p>
+            {note.updatedAt && (
+                <p>{t("entities.note.updatedAt", { date: formatDate(note.updatedAt) })}</p>
+            )}
             <hr />
             <p><strong>{note.title}</strong></p>
             <hr />

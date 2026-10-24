@@ -17,11 +17,11 @@
     },
     "entities": {
         "note": {
-            "id": "Ідентифікатор",
+            "id": "Ідентифікатор: {{id}}",
             "title": "Заголовок",
             "content": "Текст",
-            "createdAt": "Створено",
-            "updatedAt": "Змінено"
+            "createdAt": "Створено: {{date}}",
+            "updatedAt": "Змінено: {{date}}"
         }
     },
     "actions": {
