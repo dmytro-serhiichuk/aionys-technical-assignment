@@ -42,7 +42,24 @@ builder.Services.AddControllers()
         };
     });
 
+var frontendUrl = builder.Configuration["Frontend:Url"] 
+    ?? throw new InvalidOperationException("Frontend Url is missing");
+
+builder.Services.AddCors(options =>
+{   
+    options.AddPolicy("Frontend", policy =>
+    {
+        policy
+            .WithOrigins(frontendUrl)
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("Frontend");
 
 app.UseExceptionHandler();
 app.UseStatusCodePages();

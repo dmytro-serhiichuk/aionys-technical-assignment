@@ -1,0 +1,19 @@
+import { isRouteErrorResponse, useRouteError } from "react-router";
+import { ApiError } from "../api/apiClient";
+import NotFound from "../pages/NotFound";
+
+export default function RootErrorBoundary() {
+    const error = useRouteError();
+
+    if ((isRouteErrorResponse(error) && error.status === 404) || 
+        (error instanceof ApiError && error.status === 404)) {
+        return <NotFound />
+    }
+
+    return (
+        <div>
+            <h1>Something went wrong...</h1>
+            <p>{error instanceof Error ? error.message : "Unknown error"}</p>
+        </div>
+    )
+}
