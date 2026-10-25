@@ -1,6 +1,7 @@
 @use "./vars.scss";
 @use "./colors.scss";
 @use "./text.scss";
+@use "./mixins.scss";
 
 @use "./note.scss";
 
@@ -9,6 +10,15 @@ html, body, #root {
     margin: 0;
     min-height: 100dvh;
     font-size: text.$font-size-regular;
+}
+
+a {
+    color: colors.$black;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: text.$font-family-sans-serif;
 }
 
 #root {
@@ -49,12 +59,35 @@ header {
             gap: 1rem;
             list-style-type: none;
             padding: 0;
+
+            & li {
+                font-family: text.$font-family-sans-serif;
+                font-weight: bold;
+
+                & a {
+                    @include mixins.link-hover;
+                }
+            }
         }
+    }
+
+    .app-title a {
+        @include mixins.link-hover;
     }
 }
 
-button:hover {
-    cursor: pointer;
+button {
+    background-color: colors.$main;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    color: colors.$white;
+    transition: vars.$transition;
+
+    &:hover {
+        cursor: pointer;
+        background-color: colors.$main-hover;
+    }
 }
 
 form {
@@ -80,6 +113,8 @@ form {
 
 input, textarea {
     font-size: text.$font-size-regular;
+    font-family: text.$font-family-sans-serif;
+    padding: 0.4rem;
 }
 
 textarea {

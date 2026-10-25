@@ -1,0 +1,9 @@
+@use "./colors.scss";
+@use "./vars.scss";
+
+@mixin link-hover($color: colors.$main-hover) {
+    transition: color vars.$transition;
+    &:hover {
+        color: $color;
+    }
+}

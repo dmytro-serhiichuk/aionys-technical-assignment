@@ -8,7 +8,7 @@ export default function Header() {
 
     return (
         <header>
-            <h1>
+            <h1 className="app-title">
                 <Link to={ROUTES.HOME}>{t("app.title")}</Link>
             </h1>
             <div>
